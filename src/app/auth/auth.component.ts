@@ -12,6 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthComponent implements OnInit {
   hide: boolean = true
+  isLoginLoading: boolean = false
+  isRegisterLoading: boolean = false
   // eye icon
   eyeIcon() {
     this.hide = !this.hide
@@ -48,8 +50,6 @@ export class AuthComponent implements OnInit {
     }
   }
 
-
-
   activateRegister() {
     this.isRegisterActive = true;
   }
@@ -72,47 +72,71 @@ export class AuthComponent implements OnInit {
   // register
   register() {
     if (this.registerForm.valid) {
-      const username = this.registerForm.value.username
-      const email = this.registerForm.value.email
-      const password = this.registerForm.value.password
-      const user = { username, email, password }
-      // api call
-      this.api.registerAPI(user).subscribe({
-        next: (res: any) => {
-          this.toaster.success(`${res.username} has successfully registered..`)
-          this.registerForm.reset()
-          this.isRegisterActive = false;
-        },
-        error: (reason: any) => {
-          this.toaster.warning(reason.error)
-        }
-      })
+  
+      this.isRegisterLoading = true
+  
+      setTimeout(() => {
+  
+        const user = this.registerForm.value
+  
+        this.api.registerAPI(user).subscribe({
+          next: (res: any) => {
+            this.toaster.success(`${res.username} registered successfully`)
+            this.registerForm.reset()
+            this.isRegisterActive = false
+            this.isRegisterLoading = false
+          },
+          error: (reason: any) => {
+            this.toaster.warning(reason.error)
+            this.isRegisterLoading = false
+          }
+        })
+  
+      }, 800)
+  
     } else {
-      alert('Invalid form !!!')
+      this.toaster.warning('Invalid form')
     }
   }
 
   // login
   login() {
     if (this.loginForm.valid) {
-      const email = this.loginForm.value.email
-      const password = this.loginForm.value.password
-      const user = { email, password }
-      // api call
-      this.api.loginAPI(user).subscribe({
-        next: (res: any) => {
-          this.toaster.success(`${res.existingUser.username} has logged in successfully`)
-          sessionStorage.setItem("existingUser", JSON.stringify(res.existingUser))
-          sessionStorage.setItem("token", res.token)
-          this.loginForm.reset()
-          this.router.navigateByUrl('')
-        },
-        error: (reason: any) => {
-          this.toaster.warning(reason.error)
-        }
-      })
+  
+      this.isLoginLoading = true
+  
+      setTimeout(() => {
+  
+        const user = this.loginForm.value
+  
+        this.api.loginAPI(user).subscribe({
+          next: (res: any) => {
+  
+            sessionStorage.setItem("existingUser", JSON.stringify(res.existingUser))
+            sessionStorage.setItem("token", res.token)
+            sessionStorage.setItem('role', res.role)
+  
+            this.toaster.success(`${res.existingUser.username} logged in successfully`)
+  
+            this.isLoginLoading = false
+  
+            if (res.role === 'admin') {
+              this.router.navigateByUrl('/admin')
+            } else {
+              this.router.navigateByUrl('/')
+            }
+  
+          },
+          error: (reason: any) => {
+            this.toaster.warning(reason.error)
+            this.isLoginLoading = false
+          }
+        })
+  
+      }, 900)
+  
     } else {
-      alert('Invalid form..')
+      this.toaster.warning('Invalid form')
     }
   }
 

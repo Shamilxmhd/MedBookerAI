@@ -1,6 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import 'ngx-toastr/toastr';
 
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(8px);
+ 
+
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+/* hover */
+.back-btn:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +38,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
+
 }
 
 .container {
@@ -93,7 +119,8 @@
     transition: all 0.6s ease-in-out;
 }
 
-.sign-in, .sign-up {
+.sign-in,
+.sign-up {
     left: 0;
     width: 50%;
     transition: all 0.6s ease-in-out;
@@ -120,11 +147,15 @@
 }
 
 @keyframes move {
-    0%, 49.99% {
+
+    0%,
+    49.99% {
         opacity: 0;
         z-index: 1;
     }
-    50%, 100% {
+
+    50%,
+    100% {
         opacity: 1;
         z-index: 5;
     }
@@ -207,3 +238,117 @@
 .container.active .toggle-right {
     transform: translateX(200%);
 }
+
+.btn-loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* 🔥 FIX MAIN BUTTON */
+.container form button {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* 🔥 BREAK THE MERGE */
+.mobile-switch {
+    margin-top: 20px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    background: transparent; /* IMPORTANT */
+}
+
+/* TEXT STYLE */
+.mobile-switch {
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+}
+
+/* SIGN UP BUTTON */
+.link-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+
+    color: #24aad9;
+    border: 1px solid #24aad9;
+
+    transition: 0.3s;
+}
+
+/* hover */
+.link-btn:hover {
+    background: #24aad9;
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+    .body {
+      
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+
+    .container {
+        width: 95%;
+        min-height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    /* 🔥 REMOVE COMPLEX SYSTEM */
+    .form-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        padding: 25px 20px;
+    }
+
+    .sign-in,
+    .sign-up {
+        width: 100%;
+        position: relative;
+    }
+
+    /* SHOW ONLY ONE FORM */
+    .sign-up {
+        display: none;
+    }
+
+    .container.active .sign-up {
+        display: block;
+    }
+
+    .container.active .sign-in {
+        display: none;
+    }
+
+    /* 🔥 REMOVE BLUE PANEL */
+    .toggle-container {
+        display: none;
+    }
+
+}
+

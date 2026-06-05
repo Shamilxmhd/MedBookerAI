@@ -1,0 +1,112 @@
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #24aad9;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateX(-3px);
+    color: #1184ac;
+}
+.admin-ap-container {
+    padding:100px 40px 40px;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    min-height: 100vh;
+}
+
+/* title */
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* empty */
+.empty {
+    text-align: center;
+    color: #888;
+}
+
+/* grid */
+.ap-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* card */
+.ap-card {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.ap-card:hover {
+    transform: translateY(-5px);
+}
+
+/* top */
+.ap-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hospital {
+    font-size: 12px;
+    color: #666;
+}
+
+/* status */
+.status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* body */
+.ap-body p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* token */
+.token-box {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    background: #eef7ff;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #24aad9;
+}
+
+/* footer */
+.ap-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* delete */
+.btn-delete {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+}

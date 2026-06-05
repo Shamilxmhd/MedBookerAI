@@ -2,8 +2,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <section class="body">
-    <a routerLink="" class="btn btn-link mt-1" style="margin-left: -90%;"><i
-            class="fa-solid fa-chevron-left me-1"></i>Back</a>
+    <a routerLink="" class="back-btn">
+        <i class="fa-solid fa-chevron-left me-1"></i>Back
+    </a>
     <div style="margin-top: -15px;" class="body rounded-4">
         <div class="container" id="container" [ngClass]="{'active': isRegisterActive}">
             <div class="form-container sign-up">
@@ -33,14 +34,24 @@
                     </div>
                     <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
                         style="font-size: small;" class="w-100 mb-2 text-danger text-start">*Invalid password</div>
-                    <button (click)="register()">Register</button>
+                    <button (click)="register()" [disabled]="isRegisterLoading">
+
+                        <span *ngIf="!isRegisterLoading">Register</span>
+
+                        <span *ngIf="isRegisterLoading" class="btn-loader"></span>
+
+                    </button>
+                    <p class="mobile-switch d-md-none">
+                        Already have an account?
+                        <span class="link-btn" (click)="activateLogin()">Sign In</span>
+                    </p>
                 </form>
             </div>
             <div class="form-container sign-in">
                 <form [formGroup]="loginForm">
                     <h1>Sign In</h1>
                     <div class="social-icons d-flex justify-content-center">
-                        <a  id="google-button" class="icon"></a>
+                        <a id="google-button" class="icon"></a>
                         <a routerLink="/auth" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                         <a routerLink="/auth" class="icon"><i class="fa-brands fa-instagram fw-bolder"></i></a>
                         <a routerLink="/auth" class="icon"><i class="fa-brands fa-x-twitter fw-bolder"></i></a>
@@ -64,7 +75,18 @@
                         *Invalid password
                     </div>
                     <a href="#">Forget Your Password?</a>
-                    <button (click)="login()">Sign In</button>
+                    <button (click)="login()" [disabled]="isLoginLoading">
+
+                        <span *ngIf="!isLoginLoading">Sign In</span>
+
+                        <span *ngIf="isLoginLoading" class="btn-loader"></span>
+                    </button>
+                        <p class="mobile-switch d-md-none ">
+                            Don’t have an account?
+                            <span class="link-btn" (click)="activateRegister()">Sign Up</span>
+                        </p>
+
+                   
                 </form>
             </div>
             <div class="toggle-container">

@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  SERVER_URL = 'https://medbooker-server.onrender.com';
+  // SERVER_URL = 'https://medbooker-server.onrender.com';
+  SERVER_URL = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
   // register API
@@ -27,7 +28,10 @@ export class ApiService {
     }
     return { headers }
   }
-
+  // get doctors API
+  getDoctorsAPI() {
+    return this.http.get(`${this.SERVER_URL}/get-doctors`)
+  }
   // addAppointmentAPI
   addApAPI(ApDetails: any) {
     return this.http.post(`${this.SERVER_URL}/add-ap`, ApDetails, this.appendTokenToHeader())
@@ -39,15 +43,42 @@ export class ApiService {
   }
 
   // deleteAppointmentAPI
-  deleteApAPI(id: any) {
-    return this.http.delete(`${this.SERVER_URL}/delete-ap/${id}`, this.appendTokenToHeader())
+  cancelApAPI(id: any) {
+    return this.http.put(`http://localhost:3000/cancel-ap/${id}`, {}, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+      }
+    })
   }
 
   // guarding
   isLoggedIn() {
     return !!sessionStorage.getItem('token')
   }
+  // getNOtificationAPI
+  getNotificationsAPI() {
+    const token = sessionStorage.getItem('token')
 
+    return this.http.get('http://localhost:3000/notifications', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
+  // Notification MarkAsRead
+  markAsReadAPI(id: any) {
+    const token = sessionStorage.getItem('token')
+  
+    return this.http.put(
+      `http://localhost:3000/notifications/read/${id}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    )
+  }
 
 
 }

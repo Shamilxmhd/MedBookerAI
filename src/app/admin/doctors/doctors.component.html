@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="doctors-page">
+  <div class="back-btn" routerLink="/admin">
+    ← Back to Dashboard
+  </div>
+  <h2 class="page-title">Doctor Management</h2>
+
+  <!-- ADD / UPDATE FORM -->
+  <div class="form-card">
+
+    <h3>{{editMode ? '✏️ Update Doctor' : '➕ Add Doctor'}}</h3>
+
+    <input [(ngModel)]="addDoctorData.name" placeholder="Doctor Name">
+    <input [(ngModel)]="addDoctorData.hospital" placeholder="Hospital">
+    <input [(ngModel)]="addDoctorData.specialization" placeholder="Specialization">
+    <input [(ngModel)]="addDoctorData.experience" placeholder="Experience">
+    <input [(ngModel)]="addDoctorData.availability" placeholder="Availability">
+    <input [(ngModel)]="addDoctorData.image" placeholder="Image URL">
+
+    <div class="form-actions">
+      <button *ngIf="!editMode" (click)="addDoctor()" class="btn-primary">
+        Add Doctor
+      </button>
+  
+      <button *ngIf="editMode" (click)="updateDoctor()" class="btn-primary">
+        Update Doctor
+      </button>
+      <button *ngIf="editMode" (click)="cancelEdit()" class="btn-cancel-edit">
+        Cancel Edit
+      </button>
+    </div>
+
+  </div>
+
+  <!-- DOCTOR LIST -->
+  <div class="doctor-grid">
+
+    <div class="doctor-card" *ngFor="let doc of doctors">
+
+      <img [src]="doc.image" alt="">
+
+      <h4>{{doc.name}}</h4>
+      <p>{{doc.specialization}}</p>
+      <small>{{doc.hospital}}</small>
+
+      <div class="actions">
+        <button (click)="editDoctor(doc)" class="btn-edit">Edit</button>
+        <button (click)="deleteDoctor(doc._id)" class="btn-delete">Delete</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

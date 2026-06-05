@@ -1,43 +1,97 @@
-<app-header></app-header>
+<section class="appointment-section">
+    <a routerLink="" class="back-btn">
+        <i class="fa-solid fa-chevron-left me-1"></i>Back
+    </a>
+    <div class="appointment-container">
 
-<section style="background: linear-gradient(to right, #c9d6ff,   #c9d6ff);margin-top: 65px;"
-    class="container p-5 rounded-4">
-    <div class="card container w-50 border rounded bg-light">
-        <form [formGroup]="apForm">
-            <h2 style="color: #33465a;" class="text-center mt-2 mb-4">Book Your Appointment</h2>
+        <!-- LEFT -->
+        <div class="appointment-left">
+            <h2>Book Appointment</h2>
+            <p>Fill in patient details and confirm your visit easily.</p>
+        </div>
 
-            <select name="doctors" formControlName="doctors" class="form-select form-select-lg mb-3"
-                aria-label="Default select example">
-                <option value="" disabled selected hidden>Doctors</option>
-                <option value="Dr. Vishnu K S">Dr. Vishnu K S</option>
-                <option value="Nazer T">Nazer T</option>
-                <option value="Tony Jose">Tony Jose</option>
-                <option value="Anish Kumar">Anish Kumar</option>
-            </select>
+        <!-- FORM -->
+        <div class="appointment-card">
 
-            <div class="mb-3">
-                <label class="form-label">Date Of Visit </label>
-                <input name="date" formControlName="date" type="date" class="form-control form-control-lg">
-            </div>
-            <div class="d-flex justify-content-between mb-3">
-                <div class="w-50">
-                    <label class="form-label">Start Time </label>
-                    <input name="startTime" formControlName="startTime" type="time" class="form-control"
-                        placeholder="name@example.com">
+            <form [formGroup]="apForm">
+
+                <!-- Doctor -->
+                <div class="form-group">
+                    <label>Doctor</label>
+                    <select formControlName="doctor" (change)="onDoctorChange()">
+                        <option value="" disabled>Select Doctor</option>
+                        <option *ngFor="let doc of doctors" [value]="doc.name">
+                            {{doc.name}} - {{doc.specialization}}
+                        </option>
+                    </select>
                 </div>
-                <div class="w-50 ms-2">
-                    <label class="form-label">End Time </label>
-                    <input name="endTime" formControlName="endTime" type="time" class="form-control"
-                        placeholder="name@example.com">
+                <!-- Hospital -->
+                <div class="form-group">
+                    <label>Hospital</label>
+                    <input type="text" [value]="selectedHospital" disabled>
                 </div>
-            </div>
-            <div class="form-floating mb-4">
-                <textarea name="description" formControlName="description" class="form-control"
-                    placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Description</label>
-            </div>
-            <a (click)="save()" class="bn5 btn text-dark border border-2 w-100 mb-5">Save</a>
-        </form>
+                <!-- Patient Name -->
+                <div class="form-group">
+                    <label>Patient Name</label>
+                    <input type="text" formControlName="patientName" placeholder="Enter patient name">
+                </div>
+
+                <!-- Age + Phone -->
+                <div class="row-2">
+                    <input type="number" formControlName="age" placeholder="Age">
+                    <input type="text" formControlName="phone" placeholder="Phone Number">
+                </div>
+
+                <!-- Visit Type -->
+                <div class="form-group">
+                    <label>Type of Visit</label>
+                    <select formControlName="visitType">
+                        <option value="" disabled>Select Type</option>
+                        <option>New Consultation</option>
+                        <option>Follow-up</option>
+                    </select>
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" formControlName="date">
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea formControlName="description" placeholder="Describe symptoms..."></textarea>
+                </div>
+
+                <!-- Payment -->
+                <div class="form-group">
+                    <label>Payment Method</label>
+
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" value="Pay at Hospital" formControlName="paymentMethod">
+                            Pay at Hospital
+                        </label>
+
+                        <label>
+                            <input type="radio" value="Pay Online" formControlName="paymentMethod">
+                            Pay Online
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <button type="button" (click)="save()" class="btn-primary" [disabled]="loading">
+                    <span *ngIf="!loading">Confirm Booking</span>
+                    <span *ngIf="loading" class="loader"></span>
+                </button>
+
+            </form>
+
+
+        </div>
+
     </div>
+
 </section>
-<app-footer></app-footer>

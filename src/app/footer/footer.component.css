@@ -1,0 +1,180 @@
+.footer-section {
+    border-radius: 10px;
+    background: #f5f7fa;
+}
+.navbar-brand {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #1b2a41;
+   
+    gap: 6px;
+}
+
+/* add accent dot */
+.navbar-brand::after {
+    content: '.';
+    color: #24aad9;
+    font-size: 26px;
+}
+/* layout */
+.footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* columns */
+.footer-col {
+    min-width: 200px;
+}
+
+/* remove list style */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.footer-col ul li {
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    padding-left: 18px;
+}
+
+.footer-col ul li::before {
+    content: "➜";
+    position: absolute;
+    left: 0;
+    color: #24aad9;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+/* hover effect */
+.footer-col ul li:hover {
+    color: #24aad9;
+    transform: translateX(5px);
+}
+
+/* logo */
+.logo {
+    color: #0e459e;
+}
+
+/* social icons */
+.social-icons i {
+    margin-right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icons i:hover {
+    color: #24aad9;
+    transform: scale(1.2);
+}
+
+/* bottom text */
+.footer-bottom {
+    color: #666;
+}
+
+@media (max-width: 768px) {
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-col {
+        width: 100%;
+    }
+
+    /* 🔥 FIXED LIST ALIGNMENT */
+    .footer-col ul li {
+        padding-left: 0;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    /* 🔥 FIXED ARROW POSITION */
+    .footer-col ul li::before {
+        position: static;
+        display: inline-block;
+        width: 12px;
+        margin: 0;
+        text-align: right;
+    }
+
+    /* social icons */
+    .social-icons {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* list items */
+.footer-col ul li {
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    display: flex;          /* 🔥 use flex everywhere */
+    align-items: center;
+    gap: 8px;               /* space between arrow & text */
+}
+
+/* arrow */
+.footer-col ul li::before {
+    content: "➜";
+    color: #24aad9;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+/* hover */
+.footer-col ul li:hover {
+    color: #24aad9;
+    transform: translateX(5px);
+}
+
+.footer-col ul li:hover::before {
+    transform: translateX(3px);
+}
+
+
+.footer-col a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: #24aad9;
+}
+
+.back-to-top {
+    
+ 
+    background: #1b2a41;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1);
+}
+

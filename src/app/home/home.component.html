@@ -1,299 +1,419 @@
-
 <app-header></app-header>
+
+<!-- loading icon -->
+<div class="fullscreen-loader" *ngIf="isBooking">
+    <div class="spinner-border text-light"></div>
+</div>
 
 <!-- section1 -->
 <section>
-    <div style="text-align: center;position: relative;" class="container">
+    <div style="text-align: center;position: relative;" class="container-fluid px-4 px-lg-5">
         <img style="width: 100%;height: 400px;margin-top: 62px;" class="rounded-4 img-fluid"
             src="https://t4.ftcdn.net/jpg/05/79/48/43/360_F_579484323_waaeF98BnKROG1Ez3iMVbkavZrPToMut.jpg" alt="">
-        <h1 class="text-light fw-bolder"
-            style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); white-space: nowrap; text-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <h1 class="hero-title">
             Book your appointment with MedBooker</h1>
-        <h5 class="text-dark"
-            style="position: absolute;top: 60%;left: 50%;transform: translate(-50%, -50%); white-space: nowrap;text-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <h5 class="hero-subtitle">
             1,480,086 hospitals worldwide at your service!</h5>
     </div>
 </section>
 
 <!-- section2 -->
-<section id="departments" class="container mt-5">
-    <div>
-        <h4>Popular Departments</h4>
-        <div class="row">
-            <div style="position: relative;" class="col-lg-3">
-                <img height="300px" class="rounded-4 w-100"
-                    src="/assets/Images/gynocology.jpg"
-                    alt="">
-                <div style="width: 35%;position: absolute;float: left;left: 20px;top:267px;"
-                    class="bg-dark rounded-4 text-center">
-                    <span class="text-light">Gynocology</span>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="col" style="position: relative;">
-                    <img height="175px" class="w-100 rounded-4 mb-3"
-                        src="https://t4.ftcdn.net/jpg/02/31/45/85/360_F_231458513_YMuClOCXxWAtN8NP8LXbUlDZpnw4cu61.jpg"
-                        alt="">
-                    <div style="width: 35%;position: absolute;float: left;left: 20px;top:140px;"
-                        class="bg-dark rounded-4 text-center">
-                        <span class="text-light">Orthopedics</span>
-                    </div>
-                </div>
-                <div class="col" style="position: relative;">
-                    <img height="109px" class="w-100 rounded-4"
-                        src="https://img.freepik.com/free-photo/medical-banner-with-doctor-wearing-goggles_23-2149611193.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715040000&semt=sph"
-                        alt="">
-                    <div style="width: 35%;position: absolute;float: left;left: 20px;top:78px;"
-                        class="bg-dark rounded-4 text-center">
-                        <span class="text-light">Oncology</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3" style="position: relative;">
-                <img height="300px" class="w-100 rounded-4"
-                    src="/assets/Images/pediatrics.jpg" alt="">
-                <div style="width: 35%;position: absolute;float: left;left: 20px;top:267px;"
-                    class="bg-dark rounded-4 text-center">
-                    <span class="text-light">Pediatrics</span>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="col mb-3" style="position: relative;">
-                    <img height="110px" class="w-100 rounded-4"
-                        src="/assets/Images/dermatology1.jpg"
-                        alt="">
-                    <div style="width: 35%;position: absolute;float: left;left: 20px;top:80px;"
-                        class="bg-dark rounded-4 text-center">
-                        <span class="text-light">Dermatology</span>
-                    </div>
-                </div>
-                <div class="col" style="position: relative;">
-                    <img height="175px" class="w-100 rounded-4"
-                        src="https://png.pngtree.com/thumb_back/fh260/background/20231007/pngtree-cardiology-concept-3d-illustration-of-stethoscope-beside-heart-shape-on-blue-image_13559677.png"
-                        alt="">
-                    <div style="width: 35%;position: absolute;float: left;left: 20px;top:140px;"
-                        class="bg-dark rounded-4 text-center">
-                        <span class="text-light">Cardiology</span>
-                    </div>
-                </div>
+<section id="departments" class="container-fluid px-4 px-lg-5 mt-5">
+
+    <h4>Popular Departments</h4>
+
+    <div class="row g-3">
+
+        <!-- LEFT BIG -->
+        <div class="col-lg-3">
+            <div class="dept-card big">
+                <img src="/assets/Images/gynocology.jpg">
+                <span>Gynocology</span>
             </div>
         </div>
-    </div>
-</section>
 
+        <!-- MIDDLE 2 SMALL -->
+        <div class="col-lg-3 d-flex flex-column gap-3">
+            <div class="dept-card small">
+                <img src="https://t4.ftcdn.net/jpg/02/31/45/85/360_F_231458513_YMuClOCXxWAtN8NP8LXbUlDZpnw4cu61.jpg">
+                <span>Orthopedics</span>
+            </div>
+
+            <div class="dept-card small">
+                <img
+                    src="https://img.freepik.com/free-photo/medical-banner-with-doctor-wearing-goggles_23-2149611193.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715040000&semt=sph">
+                <span>Oncology</span>
+            </div>
+        </div>
+
+        <!-- RIGHT BIG -->
+        <div class="col-lg-3">
+            <div class="dept-card big">
+                <img src="/assets/Images/pediatrics.jpg">
+                <span>Pediatrics</span>
+            </div>
+        </div>
+
+        <!-- LAST 2 SMALL -->
+        <div class="col-lg-3 d-flex flex-column gap-3">
+            <div class="dept-card small">
+                <img src="/assets/Images/dermatology1.jpg">
+                <span>Dermatology</span>
+            </div>
+
+            <div class="dept-card small">
+                <img
+                    src="https://png.pngtree.com/thumb_back/fh260/background/20231007/pngtree-cardiology-concept-3d-illustration-of-stethoscope-beside-heart-shape-on-blue-image_13559677.png">
+                <span>Cardiology</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- Search + Filter -->
+<div class="search-wrapper">
+
+    <div class="search-box">
+        <i class="fa fa-search"></i>
+        <input type="text" [(ngModel)]="searchName" (input)="searchDoctors()" placeholder="Search doctors..." />
+    </div>
+
+    <div class="filter-box">
+        <select [(ngModel)]="searchSpecialization" (change)="searchDoctors()">
+            <option value="">All Specializations</option>
+            <option *ngFor="let spec of specializations" [value]="spec">{{spec}}</option>
+
+        </select>
+    </div>
+
+</div>
 <!-- section3 -->
-<section id="doctors" class="mt-5">
-    <h3 class="container">Our Doctors</h3>
+<section #doctorSection id="doctors" class="container-fluid px-4 px-lg-5 mt-5">
+    <h3>Our Doctors</h3>
     <div class="main">
         <!-- cards -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide shadow">
-                    <div class="swiper-slide-img">
-                        <img src="https://www.asterhospitals.in/sites/default/files/2023-06/Dr.%20Tony%20Jose.jpeg"
-                            alt="">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                            preserveAspectRatio="none">
-                            <path
-                                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                                opacity=".25" class="shape-fill"></path>
-                            <path
-                                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                                opacity=".5" class="shape-fill"></path>
-                            <path
-                                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                                class="shape-fill"></path>
-                        </svg>
-                    </div>
-                    <div class="swiper-slide-content">
-                        <div>
-                            <h2>Dr. Vishnu K S</h2>
-                            <span> MBBS, MD (Pulmonology)</span> <br>
-                            <span class="text-danger"> Monday to Friday : 9 am - 5 pm</span>
-                            <a class="show-more" href="https://en.wikipedia.org/wiki/Louvre" target="_blank"><svg
-                                    fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-                                </svg></a>
+        <div class="doctor-grid">
+
+            <div class="swiper-slide shadow" *ngFor="let doctor of doctors">
+
+                <div class="swiper-slide-img">
+                    <img [src]="doctor.image.trim()" />
+
+                    <!-- keep SVG SAME as before -->
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                        preserveAspectRatio="none">
+
+                        <path
+                            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                            opacity=".25" class="shape-fill"></path>
+
+                        <path
+                            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                            opacity=".5" class="shape-fill"></path>
+
+                        <path
+                            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                            class="shape-fill"></path>
+
+                    </svg>
+                </div>
+
+                <div class="swiper-slide-content">
+                    <div class="content-row">
+
+                        <div class="text-content">
+                            <h2>{{doctor.name}}</h2>
+                            <span class="specialization">{{doctor.specialization}}</span><br>
+                            <span class="hospital">{{doctor.hospital}}</span>
+                            <span class="availability text-danger">{{doctor.availability}}</span>
                         </div>
+
+                        <a class="arrow-btn" [style.pointerEvents]="isBooking ? 'none' : 'auto'"
+                            (click)="bookAp(doctor)">
+                            <span>Book</span>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3">
+                                </path>
+                            </svg>
+                        </a>
+
                     </div>
                 </div>
-                <div class="swiper-slide shadow">
-                    <div class="swiper-slide-img">
-                        <img class=""
-                            src="https://media.licdn.com/dms/image/D5603AQEz1Ckn0fJLsQ/profile-displayphoto-shrink_800_800/0/1679722950345?e=2147483647&v=beta&t=ST0w2oaSxrlLabCLERGJIhHuhAvZj8YynmGDTbHHVTg"
-                            alt="No image">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                            preserveAspectRatio="none">
-                            <path
-                                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                                opacity=".25" class="shape-fill"></path>
-                            <path
-                                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                                opacity=".5" class="shape-fill"></path>
-                            <path
-                                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                                class="shape-fill"></path>
-                        </svg>
-                    </div>
-                    <div class="swiper-slide-content">
-                        <div>
-                            <h2>Dr. Nazer T</h2>
-                            <span> MBBS, MD (Gynecology)</span> <br>
-                            <span class="text-danger"> Monday to Friday : 9 am - 5 pm</span>
-                            <a class="show-more" href="https://en.wikipedia.org/wiki/Louvre" target="_blank"><svg
-                                    fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-                                </svg></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide shadow">
-                    <div class="swiper-slide-img">
-                        <img class=""
-                            src="https://www.asterhospitals.in/sites/default/files/2023-03/Dr.%20Gireesh%20G%20N.jpeg"
-                            alt="">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                            preserveAspectRatio="none">
-                            <path
-                                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                                opacity=".25" class="shape-fill"></path>
-                            <path
-                                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                                opacity=".5" class="shape-fill"></path>
-                            <path
-                                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                                class="shape-fill"></path>
-                        </svg>
-                    </div>
-                    <div class="swiper-slide-content">
-                        <div>
-                            <h2>Dr. Tony Jose</h2>
-                            <span> MBBS, MD (Pediatrics)</span> <br>
-                            <span class="text-danger"> Monday to Friday : 8 am - 4 pm</span>
-                            <a class="show-more" href="https://en.wikipedia.org/wiki/Louvre" target="_blank"><svg
-                                    fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-                                </svg></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide shadow">
-                    <div class="swiper-slide-img">
-                        <img class=""
-                            src="https://www.asterhospitals.in/sites/default/files/2023-03/Dr.%20Anish%20Kumar.jpeg"
-                            alt="">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                            preserveAspectRatio="none">
-                            <path
-                                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                                opacity=".25" class="shape-fill"></path>
-                            <path
-                                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                                opacity=".5" class="shape-fill"></path>
-                            <path
-                                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                                class="shape-fill"></path>
-                        </svg>
-                    </div>
-                    <div class="swiper-slide-content">
-                        <div>
-                            <h2>Dr. Anish Kumar</h2>
-                            <span> MBBS, MD (Cardiology)</span> <br>
-                            <span class="text-danger"> Monday to Friday : 10 am - 6 pm</span>
-                            <a class="show-more" href="https://en.wikipedia.org/wiki/Louvre" target="_blank"><svg
-                                    fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-                                </svg></a>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+
         </div>
+    </div>
+    <div *ngIf="doctors.length === 0" class="no-data text-center mt-4">
+        <h5>No doctors found 😔</h5>
+        <p>Try searching with a different name or specialization</p>
     </div>
 </section>
 
 <!-- section4 -->
-<section class="container mt-5">
+<section class="container-fluid px-4 px-lg-5 mt-5">
     <div>
         <h4>Top-rated hospitals by patients</h4>
-        <!-- cards -->
-        <div class="d-flex flex-wrap justify-content-between mt-2">
-            <div class="card border-0" style="width: 14rem;">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmD_Tj9O9sPXelziKA357sq4O_vFXY-qsZiCR6Tv4WzQ&s"
-                    class="" alt="...">
+    </div>
+
+    <div class="logo-slider">
+        <div class="logo-track">
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmD_Tj9O9sPXelziKA357sq4O_vFXY-qsZiCR6Tv4WzQ&s" />
             </div>
-            <div class="card border-0" style="width: 14rem;">
-                <img style="margin-top:25%;" class=""
-                    src="https://www.rateyourtreatment.com/Hospital_Images/Amrita_vishwa_vidyapeetham.jpg" alt="...">
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkmT7uVRRpexM756_E1V2tAHnFB2YRMF72KQ&s" />
             </div>
-            <div class="card border-0" style="width: 14rem;">
-                <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahYLw0R5lHmjq4RCuibFAtGijcFPtiBOv8M-IP2S-eKD6Zhr2pY7AkS0uHJHlCQdzTlE&usqp=CAU"
-                    class="" alt="...">
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahYLw0R5lHmjq4RCuibFAtGijcFPtiBOv8M-IP2S-eKD6Zhr2pY7AkS0uHJHlCQdzTlE&usqp=CAU" />
             </div>
-            <div class="card border-0" style="width: 14rem;">
+
+            <div class="card border-0">
                 <img src="https://doctorlistingingestionpr.blob.core.windows.net/doctorprofilepic/1670828966762_ProviderLogo_27.jpg"
-                    class="mt-5" alt="...">
+                    class="mt-4" />
             </div>
-            <div class="card border-0" style="width: 14rem;">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwQ5rLWFW5A51-sMWTWc709lTd78pMYMSB3FzDVH_rQ&s"
-                    style="margin-top:-10px;" class="" alt="...">
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwQ5rLWFW5A51-sMWTWc709lTd78pMYMSB3FzDVH_rQ&s" />
             </div>
+
+            <!-- 🔥 duplicate for smooth loop -->
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmD_Tj9O9sPXelziKA357sq4O_vFXY-qsZiCR6Tv4WzQ&s" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkmT7uVRRpexM756_E1V2tAHnFB2YRMF72KQ&s" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahYLw0R5lHmjq4RCuibFAtGijcFPtiBOv8M-IP2S-eKD6Zhr2pY7AkS0uHJHlCQdzTlE&usqp=CAU" />
+            </div>
+
+            <div class="card border-0">
+                <img src="https://doctorlistingingestionpr.blob.core.windows.net/doctorprofilepic/1670828966762_ProviderLogo_27.jpg"
+                    class="mt-4" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwQ5rLWFW5A51-sMWTWc709lTd78pMYMSB3FzDVH_rQ&s" />
+            </div>
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmD_Tj9O9sPXelziKA357sq4O_vFXY-qsZiCR6Tv4WzQ&s" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkmT7uVRRpexM756_E1V2tAHnFB2YRMF72KQ&s" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahYLw0R5lHmjq4RCuibFAtGijcFPtiBOv8M-IP2S-eKD6Zhr2pY7AkS0uHJHlCQdzTlE&usqp=CAU" />
+            </div>
+
+            <div class="card border-0">
+                <img src="https://doctorlistingingestionpr.blob.core.windows.net/doctorprofilepic/1670828966762_ProviderLogo_27.jpg"
+                    class="mt-4" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwQ5rLWFW5A51-sMWTWc709lTd78pMYMSB3FzDVH_rQ&s" />
+            </div>
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmD_Tj9O9sPXelziKA357sq4O_vFXY-qsZiCR6Tv4WzQ&s" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkmT7uVRRpexM756_E1V2tAHnFB2YRMF72KQ&s" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahYLw0R5lHmjq4RCuibFAtGijcFPtiBOv8M-IP2S-eKD6Zhr2pY7AkS0uHJHlCQdzTlE&usqp=CAU" />
+            </div>
+
+            <div class="card border-0">
+                <img src="https://doctorlistingingestionpr.blob.core.windows.net/doctorprofilepic/1670828966762_ProviderLogo_27.jpg"
+                    class="mt-4" />
+            </div>
+
+            <div class="card border-0">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwQ5rLWFW5A51-sMWTWc709lTd78pMYMSB3FzDVH_rQ&s" />
+            </div>
+
+
         </div>
     </div>
 </section>
 
 <!-- section5 -->
-<section class="mt-5 container">
-    <div style="position: relative;" class="text-center text-light">
-        <img class="w-100" src="/assets/Images/bgAppointment.jpg" alt="">
-        <h1 style="position: absolute;top: 27%;left: 50%;transform: translate(-50%, -50%);font-size: 50px;">
-            Book an Appointment<span class="underline"></span>
-        </h1>
-        <p style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">Schedule your appointment
-            online or call us directly</p>
-        <a style="position: absolute;top: 65%;left: 50%;transform: translate(-50%, -50%);">
+<section class="appointment-section mt-5 container-fluid px-4 px-lg-5">
+    <div class="appointment-wrapper">
+        <img class="appointment-bg" src="/assets/Images/bgAppointment.jpg" alt="">
+        <div class="appointment-content text-center text-light">
+            <h1>
+                Book an Appointment<span class="underline"></span>
+            </h1>
+            <p>Schedule your appointment online or call us directly</p>
             <button (click)="bookAp()" class="bn30">BOOK YOUR APPOINTMENT</button>
-        </a>
+        </div>
     </div>
 </section>
 
 <!-- section6 -->
 <section class="container mt-5">
-    <div style="height: 90px;" class="container w-100 rounded d-flex align-items-center bg-body-secondary ">
-        <div> <i class="fa-solid fa-hand fs-1 ms-3"></i></div>
-        <div class="ms-3 mt-3">
-            <span class="fw-bold">Don't miss out!</span>
-            <p>Want exclusive deals and priority booking for medical appointments?<br> Sign up for
-                our Health Club!</p>
+    <div class="subscribe-box">
+        <div class="subscribe-left">
+            <i class="fa-solid fa-hand fs-1 ms-3"></i>
+            <div>
+                <span class="fw-bold">Don't miss out!</span>
+                <p>Want exclusive deals and priority booking for medical appointments?<br> Sign up for our Health Club!
+                </p>
+            </div>
         </div>
-        <button style="margin-left: 42%;" class="btn btn-outline-dark">Subscribe now</button>
+
+        <button class="btn btn-outline-dark subscribe-btn">Subscribe now</button>
     </div>
+
 </section>
 
 
 <!-- section7 -->
-<section id="about" class="container mt-5">
-    <div class="text-start" style="position: relative;">
-        <h1 class="fw-bold"
-            style="position: absolute;top: 33%;left: 10%;transform: translate(-26%, -50%);color: rgb(10, 10, 114);font-size: 50px;">
-            𝔸𝕓𝕠𝕦𝕥
-            𝕌𝕤</h1>
-        <p class="text-start" style="position: absolute;top: 52%;left: 20%;transform: translate(-30%, -45%);">Our
-            mission is to provide a user-friendly platform that connects you with top-tier <br>hospitals and healthcare
-            providers effortlessly. Whether you need to schedule a routine <br> check-up or require specialized medical
-            treatment, our comprehensive database and <br> intuitive booking system ensure you find the right care, at
-            the right time. Experience <br> convenience, transparency, and exceptional service with HealthEase, where
-            your health and <br> well-being are our top priority.</p>
-        <img class="w-100 img-fluid rounded-4" height="450px" src="assets/Images/bgAbout.jpg" alt="no image">
+<section id="about" class="about-section mt-5">
+    <div class="about-wrapper">
+        <img src="assets/Images/bgAbout.jpg" class="about-bg" />
+        <div class="about-content">
+            <h1>𝔸𝕓𝕠𝕦𝕥 𝕌𝕤</h1>
+            <p>
+                Our mission is to provide a user-friendly platform that connects you with top-tier
+                hospitals and healthcare providers effortlessly. Whether you need to schedule a routine
+                check-up or require specialized medical treatment, our comprehensive database and
+                intuitive booking system ensure you find the right care at the right time.
+            </p>
+        </div>
     </div>
+
 </section>
 
+<!-- Chat Toggle Button -->
+<div class="chat-toggle" (click)="toggleChat()">
+    <i class="fa-solid"[ngClass]="isChatOpen ? 'fa-angle-down' : 'fa-comment'"></i>
+    <!-- <i class="fa-solid"[ngClass]="isChatOpen ? 'fa-angle-down' : 'fa-robot'"></i> -->
+</div>
+
+<!-- Chat Box -->
+<div class="chat-box" *ngIf="isChatOpen">
+
+    <div class="chat-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <span>MedBooker Assistant</span>
+            <i class="fa-solid fa-xmark" (click)="toggleChat()"></i>
+        </div>
+    </div>
+
+    <div class="chat-body" #chatContainer>
+
+        <!-- Quick Suggestions -->
+        <div class="quick-actions" *ngIf="messages.length === 0">
+            <button (click)="quickAsk('Show doctors')">Doctors</button>
+            <button (click)="quickAsk('How to book')">Book</button>
+            <button (click)="quickAsk('My appointments')">Appointments</button>
+        </div>
+
+        <!-- Messages -->
+        <div *ngFor="let msg of messages" class="msg-wrapper"
+            [ngClass]="msg.type === 'user' ? 'user-wrapper' : 'bot-wrapper'">
+
+            <div class="msg-bubble" [ngClass]="msg.type === 'user' ? 'user-msg' : 'bot-msg'">
+                {{msg.text}}
+            </div>
+
+        </div>
+
+        <!-- Typing -->
+        <div *ngIf="isTyping" class="bot-msg typing">
+            Typing...
+        </div>
+
+    </div>
+
+    <div class="chat-input">
+        <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Ask something..." />
+
+        <button (click)="sendMessage()">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+
+</div>
+
+
+<div *ngIf="showPopup" class="token-popup">
+
+    <div class="popup-card">
+
+        <!-- HEADER -->
+        <div class="popup-header">
+            <h3>MedBooker</h3>
+            <span>Appointment Slip</span>
+        </div>
+
+        <!-- BODY -->
+        <div class="popup-body">
+            <div class="qr-section" *ngIf="qrCodeUrl">
+                <img [src]="qrCodeUrl" alt="QR Code">
+            </div>
+            <div class="token-highlight">
+                TOKEN
+                <div class="token-number">
+                    {{bookingData.tokenNumber}}
+                </div>
+            </div>
+            <hr>
+
+            <div class="details">
+                <p><strong>Patient Name:</strong> {{bookingData.patientName}}</p>
+                <p><strong>Doctor:</strong> {{bookingData.doctor}}</p>
+                <p><strong>Hospital:</strong> {{bookingData.hospital}}</p>
+                <p><strong>Date:</strong> {{bookingData.date}}</p>
+                <p><strong>Visit:</strong> {{bookingData.visitType}}</p>
+                <p><strong>Payment:</strong> {{bookingData.paymentMethod}}</p>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="popup-footer">
+            <button (click)="downloadReceipt()" class="btn-download">
+                Download
+            </button>
+
+            <button (click)="closePopup()" class="btn-cloose">
+                Close
+            </button>
+        </div>
+
+    </div>
+
+</div>
 <app-footer></app-footer>

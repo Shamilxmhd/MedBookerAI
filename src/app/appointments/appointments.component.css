@@ -1,0 +1,121 @@
+.appointments-section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* empty */
+.empty-state {
+    text-align: center;
+}
+
+.empty-state img {
+    width: 250px;
+}
+
+/* grid */
+.appointments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* card */
+.appointment-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.appointment-card:hover {
+    transform: translateY(-5px);
+}
+.cancelled-card {
+    opacity: 0.6;
+    filter: grayscale(50%);
+}
+/* top */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hospital {
+    color: #666;
+    font-size: 13px;
+}
+
+/* token */
+.token {
+    font-size: 18px;
+    font-weight: bold;
+    color: #24aad9;
+}
+
+/* body */
+.card-body p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* footer */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* status */
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+/* button */
+.btn-cancel {
+    border: none;
+    background: #ff4d4f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background: #d9363e;
+}
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-download {
+    background: #24aad9;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.btn-download:hover {
+    background: #1184ac;
+}

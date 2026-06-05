@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="admin-dashboard">
+
+  <!-- HEADER -->
+  <div class="dashboard-header">
+    <h2>Admin Dashboard</h2>
+    <p>Welcome back 👋 Manage your system efficiently</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h4>Total Users</h4>
+      <p>{{stats.users}}</p>
+    </div>
+
+    <div class="stat-card">
+      <h4>Total Doctors</h4>
+      <p>{{stats.doctors}}</p>
+    </div>
+
+    <div class="stat-card">
+      <h4>Total Appointments</h4>
+      <p>{{stats.appointments}}</p>
+    </div>
+
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="actions-grid">
+
+    <div class="action-card" routerLink="/admin/doctors">
+      <h3>Manage Doctors</h3>
+      <p>Add, update and manage doctors</p>
+    </div>
+
+    <div class="action-card" routerLink="/admin/appointments">
+      <h3>View Appointments</h3>
+      <p>Monitor and manage bookings</p>
+    </div>
+
+  </div>
+
+</div>

@@ -1,36 +1,146 @@
-<nav class="navbar navbar-expand-lg mb-5 bg-white fixed-top p-2" [class.navbar-shadow]="isScrolled">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a style="margin-left: 92px;" class="navbar-brand fw-bold" href="#">MedBooker</a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul style="font-family: Raleway, sans-serif;" class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#about">About</a>
-                </li>
-                <li class="nav-item ms-5">
-                    <a class="nav-link active" aria-current="page" href="#departments">Departments</a>
-                </li>
-                <li class="nav-item ms-5">
-                    <a class="nav-link active" aria-current="page" href="#doctors">Doctors</a>
-                </li>
-                <li *ngIf="loginUsername" routerLink="/appointments" class="nav-item ms-5">
-                    <a class="nav-link active btn" aria-current="page">My Appointments</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li *ngIf="!loginUsername" class="d-flex" role="search">
-                    <button style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.4rem; --bs-btn-font-size: .95rem; font-family: Raleway, sans-serif; margin-right: 90px;"
-                        class="btn border border-dark" routerLink="/auth">Sign in</button>
-                </li>
-                <li style="color:#1b2a41;" class="nav-item fw-bold" *ngIf="loginUsername">
-                    <i class="fa-solid fa-user me-1 fw-bolder"></i>{{loginUsername}}
-                    <button (click)="logout()" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.4rem; --bs-btn-font-size: .95rem; font-family: Raleway, sans-serif;"
-                        class="btn btn-outline-danger border border-danger ms-1">Log out</button>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg mb-5  fixed-top p-2" [class.navbar-shadow]="isScrolled">
+
+  <div class="container-fluid px-4 px-lg-5">
+
+    <!-- LOGO -->
+    <a class="navbar-brand fw-bold" [routerLink]="isAdmin ? '/admin' : '/'">
+      MedBooker
+    </a>
+    <!-- TOGGLER -->
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+      <!-- LEFT MENU (ONLY USER) -->
+      <ul *ngIf="!isAdmin" class="navbar-nav me-auto mb-2 mb-lg-0 nav-links ">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#about">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#departments">Departments</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#doctors">Doctors</a>
+        </li>
+
+        <li *ngIf="loginUsername" class="nav-item">
+          <a routerLink="/appointments" class="nav-link">
+            My Appointments
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- RIGHT SIDE -->
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <!-- USER -->
+        <li *ngIf="!isAdmin && !loginUsername">
+          <button class="btn border border-dark signin-btn" routerLink="/auth">
+            Sign in
+          </button>
+        </li>
+        <!-- bell notification -->
+        <li class="nav-item dropdown me-3">
+
+          <i class="fa-solid fa-bell nav-icon dropdown-toggle" data-bs-toggle="dropdown" (click)="markAllAsRead()"></i>
+
+          <span *ngIf="unreadCount > 0" class="notif-badge">
+            {{ unreadCount > 9 ? '9+' : unreadCount }}
+          </span>
+
+          <ul class="dropdown-menu dropdown-menu-end notif-dropdown">
+
+            <li *ngIf="notifications.length === 0" class="dropdown-item text-muted">
+              No notifications
+            </li>
+
+            <li *ngFor="let n of notifications" class="dropdown-item" [class.unread]="!n.isRead"
+              (click)="openNotification(n)">
+
+              {{n.message}}
+
+              <small class="d-block text-muted">
+                {{n.createdAt | date:'short'}}
+              </small>
+
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <li *ngIf="!isAdmin && loginUsername" class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle fw-bold d-flex align-items-center gap-1" href="#" role="button"
+            data-bs-toggle="dropdown">
+
+            <div class="avatar">
+              {{ loginUsername ? loginUsername.charAt(0).toUpperCase() : '' }}
+            </div>
+            <span>{{loginUsername}}</span>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+
+            <li>
+              <a class="dropdown-item" routerLink="/appointments">
+                My Appointments
+              </a>
+            </li>
+
+            <li>
+              <button class="dropdown-item text-danger" (click)="logout()">
+                Logout
+              </button>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <!-- 
+        <li class="nav-item me-3">
+          <i (click)="toggleDarkMode()" [ngClass]="isDark ? 'fa-sun' : 'fa-moon'" class="fa-solid nav-icon">
+          </i>
+        </li> -->
+
+
+        <!-- LOADER -->
+        <li *ngIf="isLoggingOut" class="nav-item ms-2">
+          <div class="btn-loader"></div>
+        </li>
+        <!-- ADMIN -->
+        <li *ngIf="isAdmin" class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle fw-bold d-flex align-items-center gap-1" href="#" role="button"
+            data-bs-toggle="dropdown">
+
+            <i class="fa-solid fa-user-shield"></i>
+            Admin
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+
+            <li>
+              <button class="dropdown-item text-danger" (click)="logout()">
+                Logout
+              </button>
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
     </div>
+
+  </div>
 </nav>

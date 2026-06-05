@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* body.dark-mode {
+    background: #0f172a;
+    color: #f1f5f9;
+}
+
+/* navbar */
+/* body.dark-mode .navbar {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(12px);
+}
+
+/* links */
+/* body.dark-mode .nav-link {
+    color: #e2e8f0 !important;
+} */
+
+/* dropdown */
+/* body.dark-mode .dropdown-menu {
+    background: #1e293b;
+    color: white;
+} */
+/* body.dark-mode .dropdown-item {
+    color: #f1f5f9;
+} */
+
+/* inputs */
+/* body.dark-mode input {
+    background: #334155;
+    color: white;
+} */
+
+/* buttons */
+/* body.dark-mode .btn {
+    border-color: #475569;
+} */
+/* body.dark-mode .nav-link,
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-icon {
+    color: #e2e8f0 !important;
+}   */

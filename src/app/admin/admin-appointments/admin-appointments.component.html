@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="admin-ap-container">
+  <div class="back-btn" routerLink="/admin">
+    ← Back to Dashboard
+  </div>
+  <h2 class="page-title">Appointments Management</h2>
+
+  <!-- EMPTY STATE -->
+  <div *ngIf="appointments.length === 0" class="empty">
+    <p>No Appointments Found</p>
+  </div>
+
+  <!-- GRID -->
+  <div class="ap-grid" *ngIf="appointments.length > 0">
+
+    <div class="ap-card" *ngFor="let ap of appointments">
+
+      <!-- TOP -->
+      <div class="ap-top">
+        <div>
+          <h4>{{ap.doctor}}</h4>
+          <p class="hospital">{{ap.hospital}}</p>
+        </div>
+
+        <span class="status" [ngClass]="ap.status.toLowerCase()">
+          {{ap.status}}
+        </span>
+      </div>
+
+      <!-- BODY -->
+      <div class="ap-body">
+        <p><strong>User:</strong> {{ap.userName}}</p>
+        <p><strong>Patient:</strong> {{ap.patientName}}</p>
+        <p><strong>Date:</strong> {{ap.date}}</p>
+        <p><strong>Visit:</strong> {{ap.visitType}}</p>
+        <p><strong>Payment:</strong> {{ap.paymentMethod}}</p>
+      </div>
+
+      <!-- TOKEN -->
+      <div class="token-box">
+        Token #{{ap.tokenNumber}}
+      </div>
+
+      <!-- FOOTER -->
+      <div class="ap-footer">
+        <button (click)="deleteAppointment(ap._id)" class="btn-delete">
+          Delete
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
